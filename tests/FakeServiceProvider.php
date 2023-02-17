@@ -1,11 +1,12 @@
 <?php
 
-namespace Dipantry\Rupiah;
+namespace Dipantry\Rupiah\Tests;
 
+use Dipantry\Rupiah\RupiahService;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class ServiceProvider extends BaseServiceProvider
+class FakeServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
@@ -29,6 +30,12 @@ class ServiceProvider extends BaseServiceProvider
                 [$databasePath => database_path('migrations')],
                 'migrations'
             );
+        }
+
+        if (class_exists(Application::class)) {
+            $this->publishes([
+                __DIR__.'/../config/rupiah.php' => config_path('rupiah.php'),
+            ], 'config');
         }
     }
 
