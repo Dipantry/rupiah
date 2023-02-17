@@ -1,7 +1,8 @@
 {
   "name": "dipantry/rupiah",
   "description": "All-in-one Indonesian Rupiah library",
-  "minimum-stability": "stable",
+  "keywords": ["rupiah", "indonesia", "bank", "kurs", "money", "currency"],
+  "minimum-stability": "dev",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -14,19 +15,23 @@
   ],
   "require": {
     "php": "^8.0",
-    "illuminate/support": "^9.0.0"
+    "illuminate/support": "^9.0.0",
+    "ext-fileinfo": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^9.5.0"
+    "phpunit/phpunit": "^9.5.0",
+    "php-coveralls/php-coveralls": "^2.1",
+    "orchestra/testbench": "^7.0",
+    "ext-openssl": "*"
   },
   "autoload": {
     "psr-4": {
-      "Dipantry\\Rajaongkir\\": "src/"
+      "Dipantry\\Rupiah\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Dipantry\\Rajaongkir\\Tests\\": "tests/"
+      "Dipantry\\Rupiah\\Tests\\": "tests/"
     }
   },
   "prefer-stable": true
