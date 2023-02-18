@@ -4,6 +4,12 @@ namespace Dipantry\Rupiah\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int    $id
+ * @property string $name
+ * @property string $alt_name
+ * @property string $code
+ */
 class Bank extends Model
 {
     protected $table = 'banks';

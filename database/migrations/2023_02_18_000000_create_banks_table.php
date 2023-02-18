@@ -26,6 +26,6 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::drop(config('rupiah.table_prefix').'provinces');
+        Schema::drop(config('rupiah.table_prefix').'banks');
     }
 };

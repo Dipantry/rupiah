@@ -11,6 +11,7 @@ class TestCase extends OrchestraTestCase
     public function setUp(): void
     {
         parent::setUp();
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     public function getPackageProviders($app)
@@ -34,7 +35,7 @@ class TestCase extends OrchestraTestCase
         $app['config']->set('database.connections.sqlite', [
             'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => 'rupiah_',
         ]);
+        $app['config']->set('rupiah.table_prefix', 'rupiah_');
     }
 }

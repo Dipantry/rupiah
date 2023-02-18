@@ -5,6 +5,15 @@
          colors="true"
          verbose="true">
 
+    <testsuites>
+        <testsuite name="Database">
+            <directory>./tests/Database</directory>
+        </testsuite>
+        <testsuite name="Service">
+            <directory>./tests/Service</directory>
+        </testsuite>
+    </testsuites>
+
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">./src</directory>

@@ -2,6 +2,7 @@
 
 namespace Dipantry\Rupiah;
 
+use Dipantry\Rupiah\Commands\BankRefreshCommand;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
@@ -12,6 +13,10 @@ class ServiceProvider extends BaseServiceProvider
         $this->app->bind('rupiah', function () {
             return new RupiahService();
         });
+
+        $this->commands([
+            BankRefreshCommand::class,
+        ]);
     }
 
     public function boot()
