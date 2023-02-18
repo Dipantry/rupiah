@@ -35,6 +35,12 @@ class ServiceProvider extends BaseServiceProvider
                 'migrations'
             );
         }
+
+        if (class_exists(Application::class)) {
+            $this->publishes([
+                __DIR__.'/../config/rupiah.php' => config_path('rupiah.php'),
+            ], 'config');
+        }
     }
 
     protected function isLaravel(): bool

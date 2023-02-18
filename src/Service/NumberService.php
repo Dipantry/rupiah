@@ -29,7 +29,7 @@ class NumberService
             $value < 1000000000 => $this->indoNaming($value / 1000000) . " juta" . $this->indoNaming(fmod($value, 1000000)),
             $value < 1000000000000 => $this->indoNaming($value / 1000000000) . " miliar" . $this->indoNaming(fmod($value, 1000000000)),
             $value < 1000000000000000 =>  $this->indoNaming($value / 1000000000000) . " triliun" . $this->indoNaming(fmod($value, 1000000000000)),
-            default => "undefined"
+            default => ""
         };
     }
 }

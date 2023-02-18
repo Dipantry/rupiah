@@ -27,6 +27,11 @@ class RupiahService
         return $this;
     }
 
+    public function getValue(): int
+    {
+        return $this->value;
+    }
+
     /**
      * @throws HttpResponseException
      * @throws InvalidCurrencyException
