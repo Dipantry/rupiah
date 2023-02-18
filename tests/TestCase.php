@@ -14,7 +14,7 @@ class TestCase extends OrchestraTestCase
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
-    public function getPackageProviders($app)
+    public function getPackageProviders($app): array
     {
         return [
             FakeServiceProvider::class,
@@ -22,7 +22,7 @@ class TestCase extends OrchestraTestCase
     }
 
     #[ArrayShape(['Rupiah' => 'string'])]
-    public function getPackageAliases($app)
+    public function getPackageAliases($app): array
     {
         return [
             'Rupiah' => Facade::class,

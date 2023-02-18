@@ -3,6 +3,7 @@
 namespace Dipantry\Rupiah\Service;
 
 use Dipantry\Rupiah\Constants\URLs;
+use Dipantry\Rupiah\Exception\HttpResponseException;
 use DOMDocument;
 use DOMNodeList;
 use DOMXPath;
@@ -11,7 +12,6 @@ class BankService
 {
     private HttpService $service;
 
-    private DOMDocument $doc;
     private DOMXPath $xpath;
 
     public function __construct()
@@ -19,14 +19,15 @@ class BankService
         $this->service = new HttpService();
     }
 
+    /* @throws HttpResponseException */
     public function getBankList(): array
     {
         libxml_use_internal_errors(true);
         $htmlString = $this->service->get(URLs::$bankUrl, []);
 
-        $this->doc = new DOMDocument();
-        $this->doc->loadHTML($htmlString);
-        $this->xpath = new DOMXPath($this->doc);
+        $doc = new DOMDocument();
+        $doc->loadHTML($htmlString);
+        $this->xpath = new DOMXPath($doc);
 
         return $this->processResult($this->xpath->query("//*[contains(@class, 'chakra-table')]"));
     }
@@ -34,7 +35,7 @@ class BankService
     private function processResult(DOMNodeList $tables): array
     {
         $results = [];
-        foreach ($tables as $index => $table) {
+        foreach ($tables as $table) {
             $tbody = $this->xpath->query("tbody", $table)->item(0);
             $tr = $this->xpath->query("tr", $tbody);
 
