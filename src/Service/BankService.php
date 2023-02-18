@@ -4,26 +4,22 @@ namespace Dipantry\Rupiah\Service;
 
 use Dipantry\Rupiah\Constants\URLs;
 use Dipantry\Rupiah\Exception\HttpResponseException;
+use Dipantry\Rupiah\Traits\HttpService;
 use DOMDocument;
 use DOMNodeList;
 use DOMXPath;
 
 class BankService
 {
-    private HttpService $service;
+    use HttpService;
 
     private DOMXPath $xpath;
-
-    public function __construct()
-    {
-        $this->service = new HttpService();
-    }
 
     /* @throws HttpResponseException */
     public function getBankList(): array
     {
         libxml_use_internal_errors(true);
-        $htmlString = $this->service->get(URLs::$bankUrl, []);
+        $htmlString = $this->get(URLs::$bankUrl, []);
 
         $doc = new DOMDocument();
         $doc->loadHTML($htmlString);

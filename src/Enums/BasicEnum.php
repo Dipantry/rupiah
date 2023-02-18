@@ -1,6 +1,6 @@
 <?php
 
-namespace Dipantry\Rupiah\Helper;
+namespace Dipantry\Rupiah\Enums;
 
 use ReflectionClass;
 use ReflectionException;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Dipantry\Rupiah\Service;
+namespace Dipantry\Rupiah\Traits;
 
 use Dipantry\Rupiah\Exception\HttpResponseException;
 use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
-class HttpService
+trait HttpService
 {
     private int $timeout;
     private int $retry;
