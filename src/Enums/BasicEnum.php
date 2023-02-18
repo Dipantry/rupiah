@@ -25,11 +25,13 @@ abstract class BasicEnum
         return self::$constCacheArray[$calledClass];
     }
 
-    /* @throws ReflectionException */
     public static function isValidValue($value, $strict = true): bool
     {
-        $values = array_values(self::getConstants());
-
-        return in_array($value, $values, $strict);
+        try {
+            $values = array_values(self::getConstants());
+            return in_array($value, $values, $strict);
+        } catch (ReflectionException) {
+            return false;
+        }
     }
 }

@@ -6,10 +6,10 @@ use Carbon\Carbon;
 use Dipantry\Rupiah\Constants\URLs;
 use Dipantry\Rupiah\Enums\CurrencyCode;
 use Dipantry\Rupiah\Exception\HttpResponseException;
+use Dipantry\Rupiah\Exception\InvalidCurrencyException;
 use Dipantry\Rupiah\Traits\HttpService;
 use DOMDocument;
 use DOMXPath;
-use ReflectionException;
 
 class KursService
 {
@@ -19,14 +19,14 @@ class KursService
     private DOMXPath $xpath;
 
     /**
-     * @throws HttpResponseException
+     * @throws HttpResponseException|InvalidCurrencyException
      */
     public function getKurs(string $code, string $dateString = null): array
     {
         $dateString = $dateString ?? Carbon::now()->toDateString();
 
-        if (!$this->checkCurrencyCode($code)) {
-            throw new HttpResponseException('Invalid currency code');
+        if (!CurrencyCode::isValidValue($code)) {
+            throw new InvalidCurrencyException('Invalid currency code');
         }
 
         if (Carbon::parse($dateString)->isWeekend()) {
@@ -65,14 +65,5 @@ class KursService
     private function getDataFromXml(string $xml, string $tag): string
     {
         return preg_match('/<' . $tag . '>(.*?)<\/' . $tag . '>/', $xml, $matches) ? $matches[1] : '0';
-    }
-
-    private function checkCurrencyCode(string $code): bool
-    {
-        try {
-            return CurrencyCode::isValidValue($code);
-        } catch (ReflectionException) {
-            return false;
-        }
     }
 }
