@@ -6,8 +6,17 @@
          verbose="true">
 
     <testsuites>
+        <testsuite name="Commands">
+            <directory>./tests/Commands</directory>
+        </testsuite>
         <testsuite name="Database">
             <directory>./tests/Database</directory>
+        </testsuite>
+        <testsuite name="Exception">
+            <directory>./tests/Exception</directory>
+        </testsuite>
+        <testsuite name="Model">
+            <directory>./tests/Model</directory>
         </testsuite>
         <testsuite name="Service">
             <directory>./tests/Service</directory>
