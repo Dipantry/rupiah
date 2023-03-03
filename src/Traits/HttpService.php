@@ -40,6 +40,7 @@ trait HttpService
             if ($retry > 0) {
                 return $this->getHttp($url, $params, $retry - 1);
             }
+
             throw new HttpResponseException('Connection Timed Out');
         }
     }
@@ -54,6 +55,7 @@ trait HttpService
             if ($retry > 0) {
                 return $this->postHttp($url, $params, $retry - 1);
             }
+
             throw new HttpResponseException('Connection Timed Out');
         }
     }
