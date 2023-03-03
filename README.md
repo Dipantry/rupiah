@@ -5,7 +5,7 @@
 ![PHP Version](https://img.shields.io/packagist/php-v/dipantry/rupiah?label=PHP%20Version)
 [![MIT Licensed](https://img.shields.io/github/license/dipantry/rajaongkir?label=License&style=flat-square)](LICENSE)<br>
 ![run-tests](https://github.com/dipantry/rupiah/workflows/run-tests/badge.svg)
-[![StyleCI](https://github.styleci.io/repos/483157402/shield?branch=master)](https://github.styleci.io/repos/483157402?branch=master)
+[![StyleCI](https://github.styleci.io/repos/602971936/shield?branch=master)](https://github.styleci.io/repos/602971936?branch=master)
 
 Package Laravel atau Lumen untuk mengkonversi kurs rupiah dengan nilai tukar negara asing berdasarkan data dari [Bank Indonesia](https://www.bi.go.id/id/moneter/informasi-kurs/transaksi-bi/Default.aspx). Package ini akan membantu Anda untuk mengambil informasi dari API Bank Indonesia. Selain itu, package ini mampu mengambil data bank terbaru berdasarkan website [Flip.id](https://flip.id/blog/kode-bank).
 
