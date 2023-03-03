@@ -24,6 +24,7 @@ class RupiahService
     public function of(float $value): self
     {
         $this->value = $value;
+
         return $this;
     }
 
@@ -43,6 +44,7 @@ class RupiahService
         }
 
         $rate = $this->kursService->getKurs($code)['sell'];
+
         return $this->value / $rate;
     }
 
@@ -57,6 +59,7 @@ class RupiahService
         }
 
         $rate = $this->kursService->getKurs($code)['buy'];
+
         return $this->value * $rate;
     }
 

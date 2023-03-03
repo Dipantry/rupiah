@@ -2,7 +2,6 @@
 
 namespace Dipantry\Rupiah\Tests\Service;
 
-
 use Dipantry\Rupiah\Enums\CurrencyCode;
 use Dipantry\Rupiah\Service\KursService;
 use Dipantry\Rupiah\Tests\TestCase;
@@ -13,9 +12,9 @@ class KursServiceTest extends TestCase
     public function testGetKursUS()
     {
         try {
-            $result = (new KursService())->getKurs(CurrencyCode::USD, "2023-02-17");
+            $result = (new KursService())->getKurs(CurrencyCode::USD, '2023-02-17');
         } catch (Exception) {
-            $this->fail("Exception is not expected");
+            $this->fail('Exception is not expected');
         }
 
         $this->assertNotEmpty($result);
@@ -27,9 +26,9 @@ class KursServiceTest extends TestCase
     public function testGetKursWeekend()
     {
         try {
-            (new KursService())->getKurs(CurrencyCode::USD, "2023-02-18");
+            (new KursService())->getKurs(CurrencyCode::USD, '2023-02-18');
         } catch (Exception $e) {
-            $this->assertEquals("Weekend is not allowed", $e->getMessage());
+            $this->assertEquals('Weekend is not allowed', $e->getMessage());
         }
     }
 }

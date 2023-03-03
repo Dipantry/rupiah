@@ -32,11 +32,11 @@ class BankService
     {
         $results = [];
         foreach ($tables as $table) {
-            $tbody = $this->xpath->query("tbody", $table)->item(0);
-            $tr = $this->xpath->query("tr", $tbody);
+            $tbody = $this->xpath->query('tbody', $table)->item(0);
+            $tr = $this->xpath->query('tr', $tbody);
 
             foreach ($tr as $row) {
-                $cols = $this->xpath->query("td", $row);
+                $cols = $this->xpath->query('td', $row);
 
                 if ($cols[1]->getElementsByTagName('a')->length > 0) {
                     $result['name'] = $cols[1]->getElementsByTagName('a')[0]->nodeValue;
