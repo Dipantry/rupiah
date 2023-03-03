@@ -57,8 +57,8 @@ class BankRefreshCommand extends Command
             $outsideBrackets = $matches[0];
 
             $bk = new Bank();
-            $bk->name = ucwords(strtolower(implode(" ", $outsideBrackets)));
-            $bk->alt_name = $insideBrackets ? ucwords(strtolower(implode(" ", $insideBrackets))) : null;
+            $bk->name = ucwords(strtolower(implode(' ', $outsideBrackets)));
+            $bk->alt_name = $insideBrackets ? ucwords(strtolower(implode(' ', $insideBrackets))) : null;
             $bk->code = $bank['code'];
             $bk->save();
         }
@@ -68,7 +68,7 @@ class BankRefreshCommand extends Command
     }
 
     /**
-     * Reset bank list on database
+     * Reset bank list on database.
      */
     private function reset()
     {

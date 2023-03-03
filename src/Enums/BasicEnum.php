@@ -29,6 +29,7 @@ abstract class BasicEnum
     {
         try {
             $values = array_values(self::getConstants());
+
             return in_array($value, $values, $strict);
         } catch (ReflectionException) {
             return false;

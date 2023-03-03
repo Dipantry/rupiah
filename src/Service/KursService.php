@@ -1,4 +1,6 @@
-<?php /** @noinspection SpellCheckingInspection */
+<?php
+
+/** @noinspection SpellCheckingInspection */
 
 namespace Dipantry\Rupiah\Service;
 
@@ -34,9 +36,9 @@ class KursService
         }
 
         $params = [
-            'mts' => $code,
+            'mts'       => $code,
             'startdate' => $dateString,
-            'enddate' => $dateString,
+            'enddate'   => $dateString,
         ];
         $xmlString = $this->get(URLs::$kursUrl, $params)->body();
 
@@ -51,19 +53,19 @@ class KursService
 
         if ($multiplier === '0' || $buy === '0' || $sell === '0') {
             return [
-                'buy' => 0,
-                'sell' => 0
+                'buy'  => 0,
+                'sell' => 0,
             ];
         } else {
             return [
-                'buy' => $buy / $multiplier,
-                'sell' => $sell / $multiplier
+                'buy'  => $buy / $multiplier,
+                'sell' => $sell / $multiplier,
             ];
         }
     }
 
     private function getDataFromXml(string $xml, string $tag): string
     {
-        return preg_match('/<' . $tag . '>(.*?)<\/' . $tag . '>/', $xml, $matches) ? $matches[1] : '0';
+        return preg_match('/<'.$tag.'>(.*?)<\/'.$tag.'>/', $xml, $matches) ? $matches[1] : '0';
     }
 }

@@ -28,7 +28,7 @@ class HttpResponseExceptionTest extends TestCase
     public function testWeekend()
     {
         try {
-            (new KursService())->getKurs(CurrencyCode::USD, "2023-02-18");
+            (new KursService())->getKurs(CurrencyCode::USD, '2023-02-18');
         } catch (Exception $e) {
             self::assertInstanceOf(HttpResponseException::class, $e);
             self::assertEquals('Weekend is not allowed', $e->getMessage());
