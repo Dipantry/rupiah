@@ -13,7 +13,7 @@ class RupiahService
     private KursService $kursService;
     private NumberService $numberService;
 
-    private int $value;
+    private float $value;
 
     public function __construct()
     {
@@ -21,7 +21,7 @@ class RupiahService
         $this->numberService = new NumberService();
     }
 
-    public function of(int $value): self
+    public function of(float $value): self
     {
         $this->value = $value;
         return $this;

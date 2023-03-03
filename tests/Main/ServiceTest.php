@@ -2,7 +2,7 @@
 
 /** @noinspection PhpUndefinedClassInspection */
 
-namespace Dipantry\Rupiah\Tests\Service;
+namespace Dipantry\Rupiah\Tests\Main;
 
 use Dipantry\Rupiah\Enums\CurrencyCode;
 use Dipantry\Rupiah\Tests\TestCase;
